@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Galeria.css">
+<style>
+    /* Estilos para el contenedor del carrusel y las imágenes */
+    .gallery-carousel {
+        position: relative;
+        overflow: hidden; /* Para ocultar las imágenes que exceden el contenedor */
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .gallery-container {
+        display: flex; /* Alinear las imágenes horizontalmente */
+    }
+
+    .gallery-image {
+        width: 100%; /* Asegurarse de que las imágenes ocupen todo el ancho del contenedor */
+        height: auto;
+        display: none; /* Ocultar todas las imágenes por defecto */
+    }
+
+    /* Estilo opcional para mostrar una sola imagen activa */
+    .active {
+        display: block; /* Mostrar solo la imagen activa */
+    }
+</style>
+</head>
+<body>
+    <div id="div2">
+        <div class="gallery-carousel">
+            <div class="gallery-container">
+                <!-- Imágenes del carrusel aquí -->
+           
+                <img src="imagen11.jpg" alt="Imagen 11" class="gallery-image">
+                <img src="imagen1.jpg" alt="Imagen 1" class="gallery-image">
+                <img src="imagen23.jpg" alt="Imagen 23" class="gallery-image">
+                <img src="imagen8.jpg" alt="Imagen 8" class="gallery-image">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="galeria.js"></script>
+    <script>
+        // Script para el carrusel automático de imágenes
+        const images = document.querySelectorAll('.gallery-image');
+        let index = 0;
+
+        function changeImage() {
+            // Ocultar todas las imágenes
+            images.forEach(img => {
+                img.style.display = 'none';
+            });
+
+            // Mostrar la imagen actual y pasar al siguiente índice
+            index = (index + 1) % images.length;
+            images[index].style.display = 'block';
+        }
+
+        setInterval(changeImage, 3000); // Cambiar la imagen cada 3 segundos (3000 milisegundos)
+    </script>
+</body>
+</html>
